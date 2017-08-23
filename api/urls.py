@@ -1,7 +1,7 @@
 from django.conf.urls import url, include
-from .views import item_list
+from .views import ItemList, ItemDetail
 
 urlpatterns = [
-    url(r'^items/?$', item_list, name='item_list'),
-    url(r'^items/(?P<pk>[0-9]+)/$', item_list, name='item_detail')
+    url(r'^items/?$', ItemList.as_view(), name='item_list'),
+    url(r'^items/(?P<pk>[0-9]+)/$', ItemDetail.as_view(), name='item_detail')
 ]
