@@ -6,6 +6,7 @@ class ItemSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=255)
     subtitle = serializers.CharField(required=False, allow_blank=True, max_length=255)
     price = serializers.IntegerField(read_only=True)
+    owner_id = serializers.IntegerField(required=True)
     created = serializers.DateTimeField(read_only=True)
     updated = serializers.DateTimeField(read_only=True)
 
