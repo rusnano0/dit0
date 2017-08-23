@@ -16,15 +16,12 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from api import urls as api_urls
 import debug_toolbar
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(api_urls)),
     url(r'^__debug__/', include(debug_toolbar.urls)),
 ]
 
-# if settings.DEBUG:
-#     import debug_toolbar
-#     urlpatterns = [
-#         url(r'^__debug__/', include(debug_toolbar.urls)),
-#     ] + urlpatterns

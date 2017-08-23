@@ -21,6 +21,10 @@ class Item(models.Model):
             return "{} - {}".format(self.title, self.subtitle)
         return self.title
 
+    @property
+    def owner_email(self):
+        return self.owner.email
+
     def __str__(self):
         return self.title
 
