@@ -10,10 +10,16 @@ from .models import Item
 from .serializers import ItemSerializer
 
 @csrf_exempt
-def item_list(request):
+def item_list(request, pk=0):
     """List all items or create new item"""
 
     if request.method == 'GET':
+
+        if int(pk) > 0:
+            item = Item.objects.get(pk=pk)
+            serializer = ItemSerializer(item, many=False)
+            return JsonResponse(serializer.data, safe=False)
+
         items = Item.objects.all()
         serializer = ItemSerializer(items, many=True)
         return JsonResponse(serializer.data, safe=False)
