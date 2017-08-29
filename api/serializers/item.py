@@ -2,10 +2,10 @@ from django.contrib.auth.models import User
 from api.models import Item
 from api.serializers.user import UserSerializer
 
-from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField
+from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField
 
 class ItemSerializer(ModelSerializer):
-    """ Item Deatil Seralizer"""
+    """ Item Detail Seralizer"""
 
     owner = PrimaryKeyRelatedField(queryset=User.objects.all())
 

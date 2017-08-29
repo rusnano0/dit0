@@ -169,3 +169,5 @@ def show_toolbar(request):
 DEBUG_TOOLBAR_CONFIG = {
     "SHOW_TOOLBAR_CALLBACK" : show_toolbar,
 }
+
+CDN_BASE_URL = "http://CDN.com/uploads/"
