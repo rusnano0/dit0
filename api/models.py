@@ -15,6 +15,7 @@ class Profile(models.Model):
     def __unicode__(self):
         return self.user.username
 
+
 class AssetBundle(models.Model):
     """
     This is the Asset Bundle model
@@ -39,6 +40,13 @@ class AssetBundle(models.Model):
 
     def __unicode__(self):
         return "AssetBundle: {}".format(self.salt)
+
+    @property
+    def asset_urls(self):
+        array = []
+        for asset in Asset.objects.filter(asset_bundle=self):
+            array.append({asset.kind : asset.full_url})
+        return array
 
 class Asset(models.Model):
     """ This is the Asset model """
@@ -119,6 +127,6 @@ class Like(models.Model):
     """ This is the Like model """
     item = models.ForeignKey(Item)
 
-    owner = models.ForeignKey(User, '')
+    owner = models.ForeignKey(User)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

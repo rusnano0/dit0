@@ -1,41 +1,39 @@
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField
 
-from api.models import Item
+from api.models import AssetBundle
 from api.serializers.user import UserSerializer
 
-
-class ItemSerializer(ModelSerializer):
-    """ Item Detail Seralizer"""
+class AssetBundleSerializer(ModelSerializer):
 
     owner = PrimaryKeyRelatedField(queryset=User.objects.all())
 
     class Meta:
-        model = Item
+        model = AssetBundle
         fields = (
             'id',
-            'title',
-            'price',
-            'asset_bundle',
+            'salt',
+            'kind',
+            'base_url',
             'owner',
-            'created',
-            'updated'
+            'created'
         )
         read_only_fields = ('id',)
 
-class ItemDetailSerializer(ModelSerializer):
-    """ Item Deatil Seralizer"""
+class AssetBundleDetailSerializer(ModelSerializer):
+    pass
 
     owner = UserSerializer(many=False, read_only=True)
 
     class Meta:
-        model = Item
+        model = AssetBundle
         fields = (
             'id',
-            'title',
-            'price',
-            'asset_bundle',
+            'salt',
+            'kind',
+            'base_url',
             'owner',
+            'asset_urls',
             'created',
             'updated'
         )

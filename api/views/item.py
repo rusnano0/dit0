@@ -3,10 +3,11 @@ from rest_framework.response import Response
 from api.models import Item
 from api.serializers.item import ItemSerializer, ItemDetailSerializer
 
-class ItemList(generics.ListAPIView):
+class ItemList(generics.ListCreateAPIView):
     """Item: Create, List"""
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
+
 
     def list(self, request, *args, **kwargs):
         self.serializer_class = ItemSerializer
