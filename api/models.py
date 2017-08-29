@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 class Profile(models.Model):
@@ -27,7 +28,7 @@ class AssetBundle(models.Model):
     )
     salt = models.CharField(max_length=16) #unique identifier, used to generate filenames
     kind = models.CharField(max_length=5, choices=KIND_CHOICES)
-    base_url = models.CharField(max_length=255, default="")
+    base_url = models.CharField(max_length=255, default=settings.CDN_BASE_URL)
 
     owner = models.ForeignKey(User)
     created = models.DateTimeField(auto_now_add=True)
@@ -66,6 +67,14 @@ class Asset(models.Model):
     def __unicode__(self):
         return "Asset: {}: {}".format(self.asset_bundle.salt, self.kind)
 
+    @property
+    def full_url(self):
+        return "{}{}/{}_{}.{}".format(
+            self.asset_bundle.base_url,
+            self.asset_bundle.kind,
+            self.asset_bundle.salt,
+            self.kind,
+            self.extension)
 
 class Item(models.Model):
     """ This is the model for items """
