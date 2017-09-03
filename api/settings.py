@@ -1,9 +1,9 @@
 """api.settings"""
 from rest_framework.permissions import AllowAny, IsAuthenticated, DjangoModelPermissions
-
+from api.permissions import IsAdmin
 ADMIN_PERMISSIONS = [
     IsAuthenticated,
-    # IsAdmin
+    IsAdmin
 ]
 
 STANDARD_PERMISSIONS = [

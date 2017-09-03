@@ -112,15 +112,43 @@ http://127.0.0.1:8000/api/asset-bundles/1/
     "updated": "2017-08-29T01:33:59.160245Z"
 }
 ```
-#### Authentication API Endpoints
-##### Only implementing. Not Finished.
+### Authentication API Endpoints
+##### Only implementing! Not Finished!
+##### GET api/auth/me
 ```
 http://127.0.0.1:8000/api/auth/me
+```
+###### Example output
+```
+{
+    "id": 1,
+    "username": "admin",
+    "email": "rusnano0@gmail.com"
+}
+```
+##### GET api/auth/me/profile (my profile)
+```
 http://127.0.0.1:8000/api/auth/me/profile
+```
+###### Example output
+```
+{
+    "id": 1
+}
+```
+##### Login
+```
 http://127.0.0.1:8000/api/auth/login
+```
+##### Logout
+```
 http://127.0.0.1:8000/api/auth/logout
+```
+##### Register
+```
 http://127.0.0.1:8000/api/auth/register
 ```
+
 
 ### Current Models
 1. Profile
