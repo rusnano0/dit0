@@ -1,3 +1,5 @@
+""" api.serializers.user """
+
 from django.contrib.auth.models import User
 
 from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField

@@ -1,3 +1,5 @@
+""" api.serializers.asset_bundle"""
+
 from django.contrib.auth.models import User
 from rest_framework.serializers import ModelSerializer, PrimaryKeyRelatedField, SerializerMethodField
 

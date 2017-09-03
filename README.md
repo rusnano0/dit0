@@ -4,11 +4,11 @@
 It is easy to test the API even throught the browser, because of the options
 provided by Django Rest Framework.
 #### Item API Endpoints
-###### GET array of items
+##### GET array of items
 ```
 http://127.0.0.1:8000/api/items/
 ```
-Example output
+###### Example output
 ```
 [
     {
@@ -31,11 +31,11 @@ Example output
     }
 ]
 ```
-###### GET one item (by primary key)
+##### GET one item (by primary key)
 ```
 http://127.0.0.1:8000/api/items/1/
 ```
-Example output
+###### Example output
 ```
 {
     "id": 1,
@@ -51,16 +51,16 @@ Example output
     "updated": "2017-08-29T19:26:49.577713Z"
 }
 ```
-###### POST (Create) one item
+##### POST (Create) one item
 ```
 http://127.0.0.1:8000/api/items
 ```
 #### Asset-Bundles API Endpoints
-###### GET Asset-Bundles List 
+##### GET Asset-Bundles List 
 ```
 http://127.0.0.1:8000/api/asset-bundles
 ```
-Example Output
+###### Example Output
 ```
 [
     {
@@ -81,11 +81,11 @@ Example Output
     }
 ]
 ```
-###### GET one Asset-Bundle Details (by primary key)
+##### GET one Asset-Bundle Details (by primary key)
 ```
 http://127.0.0.1:8000/api/asset-bundles/1/
 ```
-Example output:
+###### Example output:
 ```
 {
     "id": 1,
@@ -111,6 +111,15 @@ Example output:
     "created": "2017-08-29T01:33:59.159746Z",
     "updated": "2017-08-29T01:33:59.160245Z"
 }
+```
+#### Authentication API Endpoints
+##### Only implementing. Not Finished.
+```
+http://127.0.0.1:8000/api/auth/me
+http://127.0.0.1:8000/api/auth/me/profile
+http://127.0.0.1:8000/api/auth/login
+http://127.0.0.1:8000/api/auth/logout
+http://127.0.0.1:8000/api/auth/register
 ```
 
 ### Current Models

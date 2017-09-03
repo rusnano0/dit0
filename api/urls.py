@@ -1,8 +1,10 @@
 from django.conf.urls import url, include
 from api.views.item import ItemList, ItemDetail
 from api.views.asset_bundle import AssetBundleList, AssetBundleDetail
+from api.auth import urls as auth_urls
 
 urlpatterns = [
+    url(r'^auth/', include(auth_urls)),
     url(r'^items/?$', ItemList.as_view(), name='item_list'),
     url(r'^items/(?P<pk>[0-9]+)/?$', ItemDetail.as_view(), name='item_detail'),
     url(r'^asset-bundles/?$', AssetBundleList.as_view(), name='asset-bundles_list'),

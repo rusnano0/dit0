@@ -1,3 +1,5 @@
+""" api.serializers.item """
+
 from rest_framework import status, generics, mixins
 from rest_framework.response import Response
 from api.models import Item
